@@ -1,8 +1,13 @@
 *{margin:0;padding:0;}
 h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+li{list-style-type:none;}
 .head{height:60px;background:#0082df;line-height: 60px;}
-.contain{width:1200px;margin:0 auto;}
+.contain{width:1200px;margin:0 auto;overflow:hidden;}
 
 .logo{line-height:60px;color:#fff;}
-
-
+.nav li{float:left;line-height:60px;}
+.nav li a{color:#fff;font-size:16px;padding:0 15px;text-decoration: none;display:block;height:60px;}
+.nav li:hover{background:#fff;}
+.nav li:hover a{color:#000;}
+.nav li.active{background:#fff;}
+.nav li.active a{color:#000;}

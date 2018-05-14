@@ -8,14 +8,24 @@
 	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/vue.min.js"></script>
+	<script type="text/javascript" src="js/vue-router.js"></script>
 </head>
 <body>
 	<header class="head">
 		<div class="contain">
 			<h3 class="pull-left logo" id="logo">{{logo}}</h3>
-
+			<nav class="pull-right nav" id="nav">
+				<ul>
+					<li class="active"><a href="javascript:void(0);">首页</a></li>
+					<li v-for = "list in object"><a :href="list.href">{{list.name}}</a></li>
+				</ul>
+			</nav>
 		</div>
 	</header>
+	<section id="box" class="box" style="text-align: center;">
+		<img :src="img" :width= "width" v-if="seen" /><br />
+		<a href="javascript:void(0);" @click = "some">{{val}}</a>
+	</section>
 </body>
 </html>
 
@@ -24,7 +34,35 @@
 	new Vue({
 		el: "#logo",
 		data : {
-			logo: "檀竹国",
+			logo: "logo"
+		}
+	});
+	new Vue({
+		el :"#box",
+		data : {
+			img : "images/logo.png",
+			width : "400px",
+			val : "欢迎来到王者荣耀",
+			seen : true
+		},
+		methods : {
+			some:function(){
+				alert(0);
+			}
+		}
+	});
+	new Vue({
+		el : "#nav",
+		data : {
+			object : [
+				{href : "1", name : "首页"},
+				{href : "2", name : "详情"},
+			]
 		}
 	});
 </script>
+
+<style type="text/css">
+	.box{padding-top:50px;}
+	
+</style>
